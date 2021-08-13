@@ -29,6 +29,7 @@
         <script type="text/javascript" src="JS/checklist.js"></script>
         <script type="text/javascript" src="JS/mcdu.js"></script>
         <script type="text/javascript" src="JS/FAP.js"></script>
+		<script type="text/javascript" src="JS/PA.js"></script>
         <script src="JS/components/title-bar.js"></script>
         <script src="JS/components/address-bar.js"></script>
         <script src="JS/components/navigation.js"></script>
@@ -45,6 +46,7 @@
         <link rel="stylesheet" href="JS/listbox/listbox.css">
         <link rel="stylesheet" href="CSS/jquery-ui.min.css">
         <link rel="stylesheet" href="CSS/FAP.css">
+        <link rel="stylesheet" href="CSS/iysood.css">
     </head>
 
     <body class="">
@@ -58,9 +60,8 @@
         </div>
         <div style="width: 1024px; margin: auto;" id="idEfbLayer">
             <div class="ui secondary eleven menu a320-tab-main">
-                <a class="item" data-tab="tab16">Mu</a>
-                <a class="item" data-tab="tab17">METAR</a>
-                <a class="item" data-tab="tab18">CHARTS</a>
+                <a class="item" data-tab="tab17">🎶</a>
+                <a class="item" data-tab="tab18">☁</a>
                 <span><img alt="|" src="Resources\browser/favicon.ico" height="25"/></span>
                 <a class="active item" data-tab="tab01">SERVICE</a>
                 <a class="item" data-tab="tab02">PERF DATA</a>
@@ -77,6 +78,7 @@
                 <a class="item" data-tab="tab14">STATES</a>
                 <a class="item" data-tab="tab12">MAP</a>
 				<a class="item" data-tab="tab15">FAP</a>
+				<a class="item" data-tab="tab16">PA</a>
             </div>
 
             <div class="active ui bottom attached tab segment a320-tab-segment" data-tab="tab01">
@@ -2189,7 +2191,7 @@
                                 <div class="six wide column"><div class="ui button a320-switch-btn" id="failure_reset">RESET</div></div>
                                 <div class="five wide column"></div>
                             </div>
-                        </fieldset>
+                        </fieldset>                        
                     </div>
                     <div class="three wide column"></div>
                 </div>
@@ -2314,8 +2316,8 @@
                                 <div class="ui grid middle aligned">
                                         <div class="right aligned eight wide column" id="efisBaroCaption">SYNCHRONIZE EFIS BARO</div>
                                         <div class="eight wide column"><div class="ui toggle checkbox" id="efisBaroSync"><input type="checkbox"><label></label>
-                                        </div>
-                                        </div>
+                                        </div>  
+                                        </div>                               
                                 </div>
                             </fieldset>
                             </div>
@@ -2557,7 +2559,7 @@
                 </div>
 
             </div>
-
+			
 			<div class="ui bottom attached tab segment" data-tab="tab15">
                 <div  id="fap_body" align="center" class="fap_body" onclick="Fap.DisplayTouch();">
                     <div id="fap_loading" style="display:hidden">
@@ -2566,19 +2568,19 @@
                         </p>
                     </div>
                     <div id="fap_screensaver" align="center" onclick="Fap.ScreensaverTouch();" style="display:none"><img id="fap_img_screensaver"  src="Resources/FAP/screensaver.jpg" style="display:none;height:100%;width:100%;object-fit: contain"></img></div>
-
+                    
                     <!-- Pages -->
                     <div id="fap_interface_waterwaste" class="fap_interface" style="display:none;" align="left">
                         <div align="center" style="position:relative;float:left;width:15%;top:15%;left:10%;"><p class="smallfont" align="right">WASTE QUANTITY<br></p><br><img src="Resources/FAP/tank.png"  width="100%" style="float:left;" /><img src="Resources/FAP/Tank_reflection.png"  width="100%" height="93%" style="position:absolute;left:0%;bottom:0%;z-index:1005;" /><img src="Resources/FAP/waste.png"  id="fap_water_wastelevel" width="71%"  style="position:absolute;right:0%;bottom:16%;right:2%; height:10%" /></div>
                         <div align="center" style="position:relative;float:left;width:15%;top:15%;left:15%;"><p class="smallfont" align="right">WATER QUANTITY<br></p><br><img src="Resources/FAP/tank.png"  width="100%" style="float:left;" /><img src="Resources/FAP/Tank_reflection.png"  width="100%" height="93%" style="position:absolute;left:0%;bottom:0%;z-index:1005;" /><img src="Resources/FAP/water.png" id="fap_water_waterlevel"  width="71%"  style="position:absolute;right:0%;bottom:16%;right:2%; height:61%" /></div>
                     </div>
-
+                    
                     <div id="fap_interface_temperature" class="fap_interface" style="display:none;" align="left">
                         <div align="center" style="position:absolute;float:right; height:7%;width:6%; top:34%;left:58%;" >
-                            <button border=0 style="position:relative;top:-20%; width:100%;height:100%;color:black;" id="fap_temp_select_box_fwd_button" class="fap_button" width="100%" onclick="Fap.TempToggle(1);"><b>FWD<br>AREA</b></button>
+                            <button border=0 style="position:relative;top:-20%; width:100%;height:100%;color:black;" id="fap_temp_select_box_fwd_button" class="fap_button" width="100%" onclick="Fap.TempToggle(1);"><b>FWD<br>AREA</b></button>					
                         </div>
                         <div align="center" style="position:absolute;float:right; height:7%;width:6%; top:65%;left:76%;" >
-                            <button border=0 style="position:relative;top:-20%; width:100%;height:100%;color:black;" id="fap_temp_select_box_fwd_button" class="fap_button" width="100%" onclick="Fap.TempToggle(2);"><b>AFT<br>AREA</b></button>
+                            <button border=0 style="position:relative;top:-20%; width:100%;height:100%;color:black;" id="fap_temp_select_box_fwd_button" class="fap_button" width="100%" onclick="Fap.TempToggle(2);"><b>AFT<br>AREA</b></button>					
                         </div>
                         <div align="center" class="fap_bla" id="fap_temp_select_value_box_up" style="float:right; height:50%;	width:29%; top:12%;left:20%;display:none;" ><p class="smallfont" style="position:relative;" id="fap_temp_box_title">FWD AREA</p>
                             <table border=0 style="width:100%;height:95%">
@@ -2606,46 +2608,46 @@
                                 </td>
                             </tr>
                             </table>
-
+                        
                         </div>
-                        <div align="center" class="fap_bla" id="fap_temp_select_value_box_down" style="float:right; height:18%;	width:29%; top:67%;left:20%;display:none" >
+                        <div align="center" class="fap_bla" id="fap_temp_select_value_box_down" style="float:right; height:18%;	width:29%; top:67%;left:20%;display:none" >	
                             <table border=0 style="position:relative; width:20%;height:40%;color:black;">
                                 <tr align="center">
-                                    <td><button border=0 style="position:relative" id="fap_temp_select_reset" class="fap_button" width="100%" onclick="Fap.TempRequest('=');"><b>Reset</b></button></td>
+                                    <td><button border=0 style="position:relative" id="fap_temp_select_reset" class="fap_button" width="100%" onclick="Fap.TempRequest('=');"><b>Reset</b></button></td>	
                                 </tr>
                             </table>
                             <p class="smallfont">RESET TO COCKPIT<br>SELECTED TEMPERATURE<br>(ALL AREAS)</p>
                         </div>
                     </div>
-
+                    
                     <div id="fap_interface_lights"  class="fap_interface" style="display:none;" align="left">
                         <div align="center" style="position:absolute;float:right; height:7%;width:45%; top:11%;left:35%;" >
                             <br>
                             <table border=0 style="position:relative;top:-10%; width:100%;height:100%;color:black;">
                                     <tr align="left">
                                         <td>
-                                            <button border=0 style="position:relative" id="fap_light_button_Main" class="fap_button" width="100%" onclick="Fap.LightRequest(0,1);"><b>MAIN</b></button>
-                                        </td>
-                                        <td width="11.1%"></td>
+                                            <button border=0 style="position:relative" id="fap_light_button_Main" class="fap_button" width="100%" onclick="Fap.LightRequest(0,1);"><b>MAIN</b></button>							
+                                        </td>	
+                                        <td width="11.1%"></td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_AISLE" class="fap_button" width="100%" onclick="Fap.LightRequest(0,2);"><b>AISLE</b></button>
+                                        <button border=0 style="position:relative" id="fap_light_button_AISLE" class="fap_button" width="100%" onclick="Fap.LightRequest(0,2);"><b>AISLE</b></button>						
                                         </td>
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_WIDW" class="fap_button" width="100%" onclick="Fap.LightRequest(0,3);"><b>WDO</b></button>
-                                        </td>
-                                        <td width="11.1%"></td>
-                                        <td width="11.1%"></td>
-                                        <td width="11.1%"></td>
+                                        <button border=0 style="position:relative" id="fap_light_button_WIDW" class="fap_button" width="100%" onclick="Fap.LightRequest(0,3);"><b>WDO</b></button>						
+                                        </td>	
+                                        <td width="11.1%"></td>		
+                                        <td width="11.1%"></td>		
+                                        <td width="11.1%"></td>		
                                         <td >
                                         <button border=0 style="position:relative" id="fap_light_button_RLSet" class="fap_button" width="100%" onclick="Fap.LightRequest(0,4);"><b>R/L<br>SET</b></button>
-
+                                        
                                         </td>
                                         <td>
                                         <button border=0 style="position:relative" id="fap_light_button_RLReset" class="fap_button" width="100%" onclick="Fap.LightRequest(0,5);"><b>R/L<br>RESET</b></button>
-
+                                        
                                         </td>
                                     </tr>
-                            </table>
+                            </table>	
                         </div>
                         <div align="center" class="fap_bla" style="float:right; top:30%;left:8%;" >
                             <p class="smallfont" style="position:relative;top:-12%;">FWD</p>
@@ -2653,16 +2655,16 @@
                             <table border=0 style="position:relative; top:-20%; width:100%;height:100%;color:black;">
                                     <tr align="left">
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_fwd_brt" class="fap_button" width="100%" onclick="Fap.LightRequest(1,3);"><b>BRT</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_fwd_brt" class="fap_button" width="100%" onclick="Fap.LightRequest(1,3);"><b>BRT</b></button>							
+                                        </td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_fwd_dim1" class="fap_button" width="100%" onclick="Fap.LightRequest(1,2);"><b>DIM 1</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_fwd_dim1" class="fap_button" width="100%" onclick="Fap.LightRequest(1,2);"><b>DIM 1</b></button>						
+                                        </td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_fwd_dim2" class="fap_button" width="100%" onclick="Fap.LightRequest(1,1);"><b>DIM 2</b></button>
+                                        <button border=0 style="position:relative" id="fap_light_button_fwd_dim2" class="fap_button" width="100%" onclick="Fap.LightRequest(1,1);"><b>DIM 2</b></button>						
                                         </td>						</tr>
-                            </table>
-
+                            </table>	
+                        
                         </div>
                         <div align="center" class="fap_bla" style="float:right; top:42%;left:38%;" >
                             <p class="smallfont" style="position:relative;top:-12%;">CAB</p>
@@ -2670,16 +2672,16 @@
                             <table border=0 style="position:relative; top:-20%; width:100%;height:100%;color:black;">
                                     <tr align="left">
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_cab_brt" class="fap_button" width="100%" onclick="Fap.LightRequest(2,3);"><b>BRT</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_cab_brt" class="fap_button" width="100%" onclick="Fap.LightRequest(2,3);"><b>BRT</b></button>							
+                                        </td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_cab_dim1" class="fap_button" width="100%" onclick="Fap.LightRequest(2,2);"><b>DIM 1</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_cab_dim1" class="fap_button" width="100%" onclick="Fap.LightRequest(2,2);"><b>DIM 1</b></button>						
+                                        </td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_cab_dim2" class="fap_button" width="100%" onclick="Fap.LightRequest(2,1);"><b>DIM 2</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_cab_dim2" class="fap_button" width="100%" onclick="Fap.LightRequest(2,1);"><b>DIM 2</b></button>						
+                                        </td>						
                                     </tr>
-                            </table>
+                            </table>	
                         </div>
                         <div align="center" class="fap_bla" style="float:right; top:65%;left:8%;" >
                             <p class="smallfont" style="position:relative;top:-12%;">AFT</p>
@@ -2687,36 +2689,36 @@
                             <table border=0 style="position:relative; top:-20%; width:100%;height:100%;color:black;">
                                     <tr align="left">
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_aft_brt" class="fap_button" width="100%" onclick="Fap.LightRequest(3,3);"><b>BRT</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_aft_brt" class="fap_button" width="100%" onclick="Fap.LightRequest(3,3);"><b>BRT</b></button>							
+                                        </td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_aft_dim1" class="fap_button" width="100%" onclick="Fap.LightRequest(3,2);"><b>DIM 1</b></button>
-                                        </td>
+                                        <button border=0 style="position:relative" id="fap_light_button_aft_dim1" class="fap_button" width="100%" onclick="Fap.LightRequest(3,2);"><b>DIM 1</b></button>						
+                                        </td>	
                                         <td>
-                                        <button border=0 style="position:relative" id="fap_light_button_aft_dim2" class="fap_button" width="100%" onclick="Fap.LightRequest(3,1);"><b>DIM 2</b></button>
+                                        <button border=0 style="position:relative" id="fap_light_button_aft_dim2" class="fap_button" width="100%" onclick="Fap.LightRequest(3,1);"><b>DIM 2</b></button>						
                                         </td>
                                     </tr>
-                            </table>
+                            </table>	
                         </div>
                     </div>
-
-                    <!-- Menu -->
+                    
+                    <!-- Menu -->	
                     <div id="fap_border" align="center" style="visibility:hidden;">
-
+                    
                         <table id="fap_container" border=0 style="visibility:hidden;z-index:1001;">
                             <tr height="9%">
-                                <td width="16%" align="left">
+                                <td width="16%" align="left">	
                                         <table border=0 style="position:relative; width:45%;height:63%;color:black;">
                                         <tr align="left">
                                         <td width="25%"></td>
                                             <td>
                                             <button border=0 style="position:relative" id="fap_button_caution" class="fap_buttonamber" onclick="Fap.Debug();"><b>CAUT</b></button>
-                                            </td>
+                                            </td>	
                                         </tr>
-                                    </table>
+                                    </table>	
                                 </td>
-                                <td align="center" style="vertical-align:bottom;">
-                                    <div id="fap_title" class="bigfont">CABIN STATUS</p></div>
+                                <td align="center" style="vertical-align:bottom;">	
+                                    <div id="fap_title" class="bigfont">CABIN STATUS</p></div>	
                                 </td>
                                 <td width="16%" align="left" >													</td>
                             </tr>
@@ -2725,7 +2727,7 @@
                                     <div id="fap_content_status" align="center" style="height:100%;width:100%">
                                         <table width="100%" height="100%" border=0 class="smallfont">
                                             <tr>
-                                                <td id="fap_td_AUDIO" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft"  onclick="Fap.SelectPage(2);"><p class="fap_row_title">AUDIO</p><div style="height:100%;width:100%">
+                                                <td id="fap_td_AUDIO" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft"  onclick="Fap.SelectPage(2);"><p class="fap_row_title">AUDIO</p><div style="height:100%;width:100%">	
                                                         <div style="position:relative; top:17%;width:30%;height:3%;color:#e6e6e6;" class="smallfont">BGM</div><br>
                                                         <div style="position:relative; top:15%;width:20%;height:7%;color:black;border:0.1vmin solid #000000;background-color:#dbe9f4;" class="smallfont"><p id="fap_audio_playing" style="position:relative;top:27%">X</p></div><br>
                                                         <div style="position:relative; top:13%;width:30%;height:3%;color:#e6e6e6;" class="smallfont">CHAN.</div><br>
@@ -2733,42 +2735,42 @@
                                                         <div style="position:relative; top:9%;width:30%;height:3%;color:#e6e6e6;" class="smallfont">VOL.</div><br>
                                                         </div>
                                                 </td>
-
-                                                <td id="fap_td_LIGHTS" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft" onclick="Fap.SelectPage(3);"><p class="fap_row_title">LIGHTS</p><div style="height:100%;width:100%">
+                                                
+                                                <td id="fap_td_LIGHTS" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft" onclick="Fap.SelectPage(3);"><p class="fap_row_title">LIGHTS</p><div style="height:100%;width:100%">										
                                                         <div id="fap_light_fwd" style="position:relative; top:15%;width:22%;height:4%;border:0.1vmin solid #000000;background-color:magenta;color:black;" class="smallfont">FWD</div><br>
                                                         <div id="fap_light_mid" style="position:relative; top:15%;width:22%;height:60%;border:0.1vmin solid #000000;background-color:magenta;color:black;vertical-align: middle;" class="smallfont"><p style="position:relative;top:45%">CAB</p></div><br>
                                                         <div id="fap_light_aft" style="position:relative; top:15%;width:22%;height:4%;border:0.1vmin solid #000000;background-color:magenta;color:black;" class="smallfont">AFT</div>
                                                     </div>
                                                 </td>
-
+                                                
                                                 <td id="fap_td_DOOR" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft" onclick="Fap.SelectPage(4);"><p class="fap_row_title">DOOR / SLIDES</p></td>
-
-                                                <td id="fap_td_TEMPERATURE" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft" onclick="Fap.SelectPage(5);"><p class="fap_row_title">TEMPERATURE</p><div style="height:100%;width:100%">
+                                                
+                                                <td id="fap_td_TEMPERATURE" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft" onclick="Fap.SelectPage(5);"><p class="fap_row_title">TEMPERATURE</p><div style="height:100%;width:100%">										
                                                         <div id="fap_temperature_fwd" style="position:relative; top:15%;width:22%;height:36%;border:0.1vmin solid #000000;background-color:#8ac7db;color:black;" class="smallfont"><p id="fap_temperature_fwd_value" style="position:relative;top:45%">XX.X</p></div><br>
                                                         <div id="fap_temperature_aft" style="position:relative; top:15%;width:22%;height:36%;border:0.1vmin solid #000000;background-color:#8ac7db;color:black;vertical-align: middle;" class="smallfont"><p id="fap_temperature_aft_value"  style="position:relative;top:45%">XX.X</p></div><br>
                                                         </div>
                                                 </td>
-
+                                                
                                                 <td id="fap_td_WATER" style="visibility:hidden;" align="center" width="20%" class="fap_aircraft" onclick="Fap.SelectPage(6);"><p class="fap_row_title">WATER / WASTE</p></td>
-
+                                                
                                             </tr>
                                         </table>
-                                    </div>
+                                    </div>					
                                 </td>
                             </tr>
-
+                            
                             <tr height="11%">
-                                <td align="left" style="position:relative;">
+                                <td align="left" style="position:relative;">		
                                     <table border=0 style="position:absolute;bottom:-25%; left:5%; width:30%;height:63%;color:black;">
                                         <tr align="left">
                                             <td >
                                             <button border=0 style="position:relative;visibility:inherit" id="fap_button_screen_off" class="fap_button" onclick="Fap.ShowScreensaver();"><b>SCREEN<br>OFF</b></button>
-                                            </td>
+                                            </td>							
                                             <td>
                                             <button border=0 style="position:relative" id="fap_button_cabin_ready" class="fap_button" onclick="Fap.CabinReadyRequest();"><b>CABIN<br>READY</b></button>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                            </td>						
+                                        </tr>											
+                                    </table>	
                                 </td>
                                 <td align="center" style="vertical-align:bottom;width:70%;position:relative;">
                                     <div style="position:absolute;background-image:url('Resources/FAP/Menu.png');background-position: bottom center;background-size: 85%;bottom:-17%; background-repeat:no-repeat;height:120%;width:100%;"></div>
@@ -2801,174 +2803,207 @@
                                             <td>
                                             <button border=0 style="position:relative" id="fap_button9" class="fap_button" onclick=""><b>MAINT</b></button>
                                             </td>
-                                        </tr>
-                                    </table>
+                                        </tr>							
+                                    </table>	
                                 </td>
                                 <td align="right" style="position:relative;">
                                     <table border=0 style="position:absolute;bottom:-25%; right:10%; width:30%;height:63%;color:black;">
                                         <tr align="left">
                                             <td>
                                                 <button border=0 style="position:relative" id="fap_button_status" class="fap_button" onclick="Fap.SelectPage(1);"><b>CABIN<br>STATUS</button>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                            </td>														
+                                        </tr>											
+                                    </table>				
                                 </td>
                             </tr>
-                        </table>
+                        </table>		
                     </div>
                 </div>
             </div>
-
-
-
-
-            <div class="ui bottom attached tab segment" data-tab="tab16">
+			<div class="ui bottom attached tab segment" data-tab="tab16">
                 <div class="ui grid middle aligned">
                     <div class="three wide column"></div>
-                    <div class="sixteen wide column">
+                    <div class="ten wide column">
                         <div class="ui grid middle aligned">
-
-                            <div class="sixteen wide column">
-                                <fieldset class="a320-server-field-set">
-                                    <legend>Current Playing</legend>
-
-                                    <audio id="nowRunning" controls style="width: 100%">
-                                        <source type="audio/wav">
-                                        Your browser does not support the audio element.
-                                    </audio>
-
-                                </fieldset>
-                            </div>
-                            <div class="one wide column"></div>
-
                             <div class="sixteen wide column"></div>
-
-                            <div class="one wide column"></div>
-                            <div class="six wide column">
+                            <div class="fourteen wide column">
                                 <fieldset class="a320-server-field-set">
-                                    <legend>Announcement 📢</legend>
-
-                                    <table style="width: 100%;">
-                                        <tbody>
-                                            <tr>
-                                                <td onclick="playMusic('safetyDemonstration');" style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">safety Demonstration</td>
-                                                <td style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                            <tr>
-                                                <td onclick="playMusic('travelPrayer');" style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">travel Prayer</td>
-                                                <td style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;">  <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                            <tr>
-                                                <td onclick="playMusic('attendedDescent');" style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">attended Descent</td>
-                                                <td style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;">  <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                            <tr>
-                                                <td onclick="playMusic('attendedLanding');" style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">attended Landing</td>
-                                                <td style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;">  <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                            <tr>
-                                                <td onclick="playMusic('WelcomeAgain');" style="padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">WelcomeAgain</td>
-                                                <td style="padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
+                                    <legend>PASSENGER ADDRESS</legend>
+                                    <div class="ui grid middle aligned">
+                                        <div class="eleven wide column right aligned" id="autoAnnouncementCaption">AUTOMATIC ANNOUNCEMENTS</div>
+										<div class="five wide column">
+										<div class="ui toggle checkbox" id="auto_announcement"><input type="checkbox"><label></label></div>  
+										</div>
+										<div class="ui pa_buttons">
+										<div class="ui grid">
+											<div class="row">
+											<div class="five wide column"><div class="ui button a320-pa-switch-btn" id="announcement_Welcome">WELCOME</div></div>
+											<div class="six wide column"><div class="ui button a320-pa-switch-btn" id="announcement_Climbing">CLIMBING</div></div>
+											<div class="five wide column"><div class="ui button a320-pa-switch-btn" id="announcement_Safety">SAFETY</div></div>
+											</div>
+											
+											<div class="row">
+											<div class="five wide column"><div class="ui button a320-pa-switch-btn" id="announcement_InCruise">IN CRUISE</div></div>
+											<div class="six wide column"><div class="ui button a320-pa-switch-btn" id="announcement_SeatBeltsOff">SEAT BELTS OFF</div></div>
+											<div class="five wide column"><div class="ui button a320-pa-switch-btn" id="announcement_Descending">DESCENDING</div></div>		
+											</div>
+											
+											<div class="row">
+											<div class="five wide column"><div class="ui button a320-pa-switch-btn" id="announcement_Arrived">ARRIVED</div></div>
+											<div class="six wide column"><div class="ui button a320-pa-switch-btn" id="announcement_RejectedTakeoff">REJECTED TAKEOFF</div></div>
+											<div class="five wide column"><div class="ui button a320-pa-switch-btn" id="announcement_GoAround">GO AROUND</div></div>
+											</div>
+											
+											<div class="row">
+											<div class="eight wide column"><div class="ui button a320-pa-switch-btn" id="announcement_ReadyForTakeoff">READY FOR TAKEOFF</div></div>
+											<div class="eight wide column"><div class="ui button a320-pa-switch-btn" id="announcement_ReadyForLanding">READY FOR LANDING</div></div>
+											</div> 
+										</div>
+										</div>
+									</div>
                                 </fieldset>
                             </div>
-                            <div class="one wide column"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                            <div class="six wide column">
-                                <fieldset class="a320-server-field-set">
-                                    <legend>Music 🎶</legend>
 
-                                    <table style="width: 100%;">
-                                        <tbody>
-                                            <tr>
-                                                <td onclick="playMusic('boarding_saudia');" style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">Saudia</td>
-                                                <td style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                            <tr>
-                                                <td onclick="playMusic('boarding_flydubai');" style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">FlyDubai</td>
-                                                <td style="border-bottom: 1px dashed #616161;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                            <tr>
-                                                <td onclick="playMusic('boarding_turkish');" style="padding-top: 10px;padding-bottom: 10px;width: 80%;font-size: 18px;">Turkish</td>
-                                                <td style="padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+        <!-- iYsood Sound -->
+        <div class="ui bottom attached tab segment" data-tab="tab17">
+            <div class="ui grid middle aligned">
+                <div class="three wide column"></div>
+                <div class="sixteen wide column">
+                    <div class="ui grid middle aligned">
 
-                                </fieldset>
-                            </div>
-                            <div class="one wide column"></div>
+                        <div class="sixteen wide column">
+                            <fieldset class="a320-server-field-set">
+                                <legend>Current Playing</legend>
 
+                                <audio id="nowRunning" controls style="width: 100%">
+                                    <source type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+
+                            </fieldset>
                         </div>
-                    </div>
-                    <div class="three wide column"></div>
-                </div>
 
-<script>
-    function playMusic(file) {
-        var musicSrc = document.getElementById('nowRunning');
-        musicSrc.src = 'sounds/'+ file +'.wav';
-        musicSrc.volume = 0.03;
-        musicSrc.play();
-    }
-</script>
+                        <div class="eight wide column">
+                            <div class="left_width">
+                                <h3> Announcement 📢 </h3>
+                                <div class="width_l_hr"></div>
 
-            </div>
+                                <table style="width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td onclick="playMusic('safetyDemonstration');" style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">safety Demonstration</td>
+                                            <td style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="playMusic('travelPrayer');" style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">travel Prayer</td>
+                                            <td style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;">  <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="playMusic('attendedDescent');" style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">attended Descent</td>
+                                            <td style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;">  <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="playMusic('attendedLanding');" style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">attended Landing</td>
+                                            <td style="border-bottom: 1px dashed #3b4371;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;">  <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
 
-
-            <div class="ui bottom attached tab segment" data-tab="tab17" style="padding-top:0; padding-bottom:0">
-                <div class="ui grid middle aligned">
-                    <div class="sixteen wide column">
-                        <iframe src="https://eisenfaust12.github.io/EFB/pdf.js/viewer.html" width="100%" height="700px" style="border:0"></iframe>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ui bottom attached tab segment" data-tab="tab18">
-
-                            <div class="one wide column"></div>
-                            <div class="sixteen wide column">
-                                <fieldset class="a320-server-field-set">
-                                    <legend>Metrology 🌦</legend>
-
-                                    <div class="ui grid middle aligned settings">
-                                        <div class="center aligned two wide column">AERODROME</div>
-                                        <div class="two wide column">
-                                            <div class="ui input fluid">
-                                                <input type="text" id="wx_aerodrome" style="text-transform:uppercase">
-                                            </div>
-                                        </div>
-                                        <div class="two wide column">
-                                            <div id="wx_request" class="ui button a320-perf-set" style="background-color: #0dcaf0 !important;color: #333;">Request</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="one wide column"></div>
-                                    <hr>
-                                    <div class="one wide column"></div>
-
-
-                                    <div id="wx_metar_error"></div>
-                                    <div id="wx_metar_table_start">
-                                        <h3> Welcome to see you captain,  </h3>
-                                    </div>
-                                    <div id="wx_metar_table">
-                                        <h3> Station: <span style="display: inline-block; padding: 0.35em 0.65em; font-size: 1em; font-weight: 700; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 0.25rem; background-color: #212529 !important;"><small id="wx_station"></small> - <small id="wx_site"></small></span> </h3>
-                                        <h3> METAR: <span style="display: inline-block; padding: 0.35em 0.65em; font-size: 1em; font-weight: 700; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 0.25rem; background-color: #212529 !important;"><small id="wx_raw_metar"></small></span> </h3>
-                                        <h3> TAF: <span style="display: inline-block; padding: 0.35em 0.65em; font-size: 1em; font-weight: 700; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 0.25rem; background-color: #212529 !important;"><small id="wx_raw_taf" style="width: 100%;"></small> </span></h3>
-                                    </div>
-
-
-                                </fieldset>
                             </div>
-                            <div class="one wide column"></div>
+                        </div>
 
+                        <!-- <div class="two wide column"> -->
+
+                        <div class="eight wide column">
+                            <div class="right_width">
+                                <h3> Music 🎶 </h3>
+                                <div class="width_r_hr"></div>
+
+                                <table style="width: 100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td onclick="playMusic('boarding_saudia');" style="border-bottom: 1px dashed #42275a;padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">Saudia</td>
+                                            <td style="border-bottom: 1px dashed #42275a;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="playMusic('boarding_flydubai');" style="border-bottom: 1px dashed #42275a;padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">FlyDubai</td>
+                                            <td style="border-bottom: 1px dashed #42275a;padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="playMusic('boarding_turkish');" style="padding-top: 10px;padding-bottom: 10px;width: 90%;font-size: 18px;">Turkish</td>
+                                            <td style="padding-top: 10px;padding-bottom: 10px;width: 20%;font-size: 18px;"> <a onclick="stopMusic();" style="cursor: pointer;">&#9209;</a> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="three wide column"></div>
             </div>
+
+            <script>
+                function playMusic(file) {
+                    var musicSrc = document.getElementById('nowRunning');
+                    musicSrc.src = 'sounds/'+ file +'.wav';
+                    musicSrc.volume = 0.5;
+                    musicSrc.play();
+                }
+
+                function stopMusic(){
+                    var musicSrc = document.getElementById('nowRunning');
+                    musicSrc.pause();
+                }
+            </script>
 
         </div>
+
+
+        <div class="ui bottom attached tab segment" data-tab="tab18" style="padding-top:0; padding-bottom:0">
+            <div class="one wide column"></div>
+                <div class="sixteen wide column">
+                    <fieldset class="a320-server-field-set">
+                        <legend>Metrology 🌦</legend>
+
+                        <div class="ui grid middle aligned settings">
+                            <div class="center aligned two wide column">AERODROME</div>
+                            <div class="two wide column">
+                                <div class="ui input fluid">
+                                    <input type="text" id="wx_aerodrome" style="text-transform:uppercase">
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <div id="wx_request" class="ui button a320-perf-set" style="background-color: #0dcaf0 !important;color: #333;">Request</div>
+                            </div>
+                        </div>
+
+                        <div class="one wide column"></div>
+                        <hr>
+                        <div class="one wide column"></div>
+
+
+                        <div id="wx_metar_error"></div>
+                        <div id="wx_metar_table_start">
+                            <h3> Welcome to see you captain,  </h3>
+                        </div>
+                        <div id="wx_metar_table">
+                            <h3> Station: <span style="display: inline-block; padding: 0.35em 0.65em; font-size: 1em; font-weight: 700; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 0.25rem; background-color: #212529 !important;"><small id="wx_station"></small> - <small id="wx_site"></small></span> </h3>
+                            <h3> METAR: <span style="display: inline-block; padding: 0.35em 0.65em; font-size: 1em; font-weight: 700; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 0.25rem; background-color: #212529 !important;"><small id="wx_raw_metar"></small></span> </h3>
+                            <h3> TAF: <span style="display: inline-block; padding: 0.35em 0.65em; font-size: 1em; font-weight: 700; line-height: 1; color: #fff; text-align: center; white-space: nowrap; vertical-align: baseline; border-radius: 0.25rem; background-color: #212529 !important;"><small id="wx_raw_taf" style="width: 100%;"></small> </span></h3>
+                        </div>
+
+
+                    </fieldset>
+                </div>
+                <div class="one wide column"></div>
+        </div>
+        <!-- iYsood Sound -->
 
         <div id="vKeyboardNum" class="ui-widget-content hide">
             <div class="keyboard-row">

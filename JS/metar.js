@@ -1,4 +1,3 @@
-// <script>
 
 var _icao = {
     AYGA: [-6.082, 145.392],
@@ -7771,14 +7770,9 @@ var _icao = {
     };
 })((window.metar = window.metar || {}));
 
-$("#wx_metar_table").hide();
-
-$(document).ready(function() {
-    $("#wx_metar_table").hide();
-});
 
 (function (wx, $) {
-    // $("#wx_metar_table").hide();
+    $("#wx_metar_table").hide();
 
     function requestWeather(id, done) {
         var coords = _icao[id];
@@ -7862,8 +7856,8 @@ $(document).ready(function() {
                 $("#wx_station").text(data.id);
                 $("#wx_site").text(data.site);
                 $("#wx_raw_metar").text(data.rawOb);
-                // $("#wx_raw_taf").html(tafToHtml(data.rawTAF));
-                $("#wx_raw_taf").html(data.rawTAF);
+                $("#wx_raw_taf").html(tafToHtml(data.rawTAF));
+                // $("#wx_raw_taf").html(data.rawTAF);
                 updateReportTable(data.rawOb);
                 $("#wx_metar_table_start").hide();
                 $("#wx_metar_table").show();
@@ -7878,5 +7872,3 @@ $(document).ready(function() {
         });
     });
 })((window.wx = window.wx || {}), jQuery);
-
-// </script>

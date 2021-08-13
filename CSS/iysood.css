@@ -1,0 +1,29 @@
+
+.left_width {
+	position: absolute;
+	left: 0;
+	width: 95%;
+	background: #3a6186;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.right_width {
+	position: absolute;
+	right: 0;
+	width: 95%;
+	background: #734b6d;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.width_l_hr {
+	border-bottom: 0.5px solid #3b4371;
+}
+
+.width_r_hr {
+	border-bottom: 0.5px solid #42275a;
+}
+
